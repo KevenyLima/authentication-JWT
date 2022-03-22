@@ -3,9 +3,7 @@ import {ModelComment} from './SchemaComment'
 const SchemaPost = new Schema({
     title:{type:String},
     content:{type:Array},
-    creator:{type:String},
-    comment:{type:ModelComment},
-
+    creatorId:{type:String},
 },{timestamps:true})
 
-export const PostModel = model('post',SchemaPost)
+export const ModelPost = model('post',SchemaPost)

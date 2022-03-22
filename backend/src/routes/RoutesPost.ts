@@ -1,16 +1,13 @@
 import { Request, Response } from "express"
+import { createPost, deletePost, findPost, getAllPost, updatePost } from "../controllers/postControllers"
+import { validatialCreatePost } from "../middlewares/validationCreatePost"
 
 const Router = require('express').Router()
+Router.post('/',validatialCreatePost,createPost)
+Router.put('/',validatialCreatePost,updatePost)
+Router.delete('/:id',deletePost)
+Router.get('/',getAllPost)
+Router.get('/:id',findPost)
 
-Router.get('/',(req:Request,res:Response)=>{
-    
-})
-Router.get('/:id',(req:Request,res:Response)=>{
 
-})
-Router.post('/',(req:Request,res:Response)=>{
-    
-})
-Router.put('/',(req:Request,res:Response)=>{
-    
-})
+export default Router
