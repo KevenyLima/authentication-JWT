@@ -3,7 +3,8 @@ require('dotenv').config()
 import config from 'config'
 import db from '../config/db'
 import express from 'express'
-import Router from './routes/RoutesPost'
+import RoutesPost from './routes/RoutesPost'
+import RoutesCreator from './routes/RoutesCreator'
 const app = express()
 
 
@@ -11,7 +12,9 @@ app.use(cors())
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
-app.use('/post',Router)
+//routes
+app.use('/post',RoutesPost)
+app.use('/creator',RoutesCreator)
 
 const port = config.get('port')
 app.listen(port,async()=>{
